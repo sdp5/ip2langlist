@@ -7,8 +7,6 @@ This webservice could be consumed to cater websites in country specific language
 Or, to narrow the search results.
 Or, to be specific while providing services, so on ... 
 
-Currently no API-Key is required. 
-
 Response Format Supported: XML and JSON
 
 Webservice exception message is returned upon reaching access limit of 10,000 hits per 24 hrs
