@@ -1,6 +1,8 @@
 <?php
 
-//  this will serve xml/json response
+//  this will serve xml/json response for
+//  http://api.webcloudsoft.org/langlist/ip/<0.0.0.0>/
+//  http://api.webcloudsoft.org/langlist/json/ip/<0.0.0.0>/
 
 require_once("service.php");
 
