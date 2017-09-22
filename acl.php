@@ -1,8 +1,8 @@
 <?php
 
 //  this will serve xml/json response for
-//  http://api.webcloudsoft.org/langlist/ip/<0.0.0.0>/
-//  http://api.webcloudsoft.org/langlist/json/ip/<0.0.0.0>/
+//  /langlist/ip/<0.0.0.0>/
+//  /langlist/json/ip/<0.0.0.0>/
 
 require_once("service.php");
 
@@ -28,18 +28,18 @@ function validatePID($from)
 {
 	$return = false;
 	$file = $GLOBALS['PID_LOCATION'].$from;
-	
+
 	if(file_exists($file))
 	{
 		$handle = fopen($file,'r');
 		$data = fread($handle,filesize($file));
-		if($data > 0) 
+		if($data > 0)
 		{
 			$data = $data-1;
 			$return = true;
 		}
 		fclose($handle);
-		
+
 		$handle = fopen($file,'w');
 		fwrite($handle, $data);
 		fclose($handle);
@@ -50,7 +50,7 @@ function validatePID($from)
 		fwrite($handle, $GLOBALS['ACCESS_LIMIT']-1);
 		$return = true;
 	}
-	
+
 	return $return;
 }
 
@@ -61,12 +61,12 @@ if(validateIP($_GET['ip']))
 	if(validatePID(md5($_SERVER['REMOTE_ADDR'])))
 	{
 		$ip = $_GET['ip'];
-		$format = $_GET['format'];		
+		$format = $_GET['format'];
 		getResponse($ip, $format);
 	}
 	else
 	{
-		if($format == 'json') 
+		if($format == 'json')
 		{
 			header('Content-type: application/json');
 			echo json_encode(array("access limit reached"));
@@ -77,11 +77,11 @@ if(validateIP($_GET['ip']))
 				echo "<error>access limit reached</error>";
 			}
 	}
-	
+
 }
 else
 	{
-		if($format == 'json') 
+		if($format == 'json')
 		{
 			header('Content-type: application/json');
 			echo json_encode(array("invalid ip"));

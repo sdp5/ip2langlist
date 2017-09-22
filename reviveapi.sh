@@ -3,8 +3,8 @@
 # GLOBALS
 ABSOLUTE_PATH="./breadth/"
 ACCESS_MAX_LIMIT="10000"
-HTTPD_USER="nobody"
-HTTPD_GRP="nobody"
+HTTPD_USER="apache"
+HTTPD_GRP="apache"
 
 # FUNCTIONS
 cd $ABSOLUTE_PATH
